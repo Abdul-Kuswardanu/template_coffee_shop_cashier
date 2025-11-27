@@ -1,0 +1,158 @@
+<?php
+$active_menu = 'pengaturan';
+$additional_css = [
+    'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css'
+];
+$additional_js = [
+    'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js'
+];
+$page_script = <<<JS
+$('.theme-option').on('click', function() {
+    $('.theme-option').removeClass('active');
+    $(this).addClass('active');
+    localStorage.setItem('theme', $(this).data('theme'));
+    loadTheme();
+});
+
+$('#formSistem').on('submit', function(e) {
+    e.preventDefault();
+    Swal.fire({ icon: 'success', title: 'Informasi sistem tersimpan', timer: 1800, showConfirmButton: false });
+});
+JS;
+
+$this->load->view('inc/manager/header');
+$this->load->view('inc/manager/navbar');
+$this->load->view('inc/manager/sidebar');
+?>
+    <style>
+        body { background: #f4f6f9; }
+        .content-wrapper { padding: 20px 24px 40px; }
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(15,23,42,0.08);
+        }
+        .card-header {
+            border: none;
+            padding: 1.25rem 1.75rem;
+            border-bottom: 1px solid #eef2ff;
+        }
+        .theme-option {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .theme-option:hover {
+            border-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        .theme-option.active {
+            border-color: #2563eb;
+            background: rgba(37, 99, 235, 0.1);
+        }
+        .theme-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Pengaturan Sistem</h1>
+                        <p class="text-muted mb-0">Kelola preferensi tampilan dan informasi sistem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title"><i class="fas fa-info-circle mr-1"></i> Informasi Sistem</h3>
+                            </div>
+                            <div class="card-body">
+                                <form id="formSistem">
+                                    <div class="form-group">
+                                        <label>Nama Sistem</label>
+                                        <input type="text" class="form-control" value="Coffee Shop Management System" placeholder="Nama Sistem">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Deskripsi Sistem</label>
+                                        <textarea class="form-control" rows="4" placeholder="Deskripsi Sistem">Sistem manajemen terintegrasi untuk mengelola operasional coffee shop multi cabang.</textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save mr-1"></i> Simpan Informasi Sistem
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title"><i class="fas fa-palette mr-1"></i> Tema Tampilan</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="theme-option active" data-theme="light">
+                                            <div class="theme-icon text-warning"><i class="fas fa-sun"></i></div>
+                                            <strong>Light Mode</strong>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="theme-option" data-theme="dark">
+                                            <div class="theme-icon text-dark"><i class="fas fa-moon"></i></div>
+                                            <strong>Dark Mode</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h3 class="card-title"><i class="fas fa-cog mr-1"></i> Pengaturan Lainnya</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Bahasa</label>
+                                    <select class="form-control">
+                                        <option selected>Bahasa Indonesia</option>
+                                        <option>English</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Format Tanggal</label>
+                                    <select class="form-control">
+                                        <option selected>DD/MM/YYYY</option>
+                                        <option>MM/DD/YYYY</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Zona Waktu</label>
+                                    <select class="form-control">
+                                        <option selected>GMT+7 (Jakarta)</option>
+                                        <option>GMT+8 (Makassar)</option>
+                                        <option>GMT+9 (Jayapura)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<?php $this->load->view('inc/manager/footer', compact('additional_css', 'additional_js', 'page_script')); ?>
+
