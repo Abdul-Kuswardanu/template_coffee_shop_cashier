@@ -21,7 +21,7 @@ $this->load->view('inc/kasir/header', $header_data);
 $this->load->view('inc/kasir/navbar');
 ?>
 
-<div class="content-wrapper" style="padding: 20px 24px 40px;">
+<div class="content-wrapper" style="padding: 32px 56px 48px; margin-left: 0 !important; width: 100% !important; max-width: 100% !important;">
 <section class="kasir-status">
     <span><i class="fas fa-clock"></i> Shift <?php echo isset($shift) ? $shift : 'Pagi'; ?> • <?php echo isset($store) ? $store : 'Gerai #01'; ?></span>
     <span><i class="fas fa-user"></i> Kasir: <?php echo isset($kasir_name) ? $kasir_name : 'Rina Marlina'; ?></span>
@@ -137,8 +137,8 @@ $this->load->view('inc/kasir/navbar');
     </aside>
 </div>
 
-<section class="kasir-card" style="margin-top:28px;">
-    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+<section class="kasir-card" style="margin-top:40px;">
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
         <div>
             <h2><i class="fas fa-chart-bar"></i> Ringkasan Shift</h2>
             <p style="margin:0;color:#94a3b8;">Statistik dummy untuk preview tampilan.</p>
@@ -155,7 +155,7 @@ $this->load->view('inc/kasir/navbar');
             </span>
         </div>
     </header>
-    <div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;">
+    <div style="margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;">
         <div style="background:#f8fafc;border-radius:18px;padding:16px;">
             <small style="color:#94a3b8;font-weight:600;">Rata-rata Struk</small>
             <strong style="display:block;margin-top:8px;font-size:1.4rem;">Rp106.000</strong>

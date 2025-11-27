@@ -44,6 +44,8 @@
             background: rgba(255, 255, 255, 0.95);
             border-bottom: 1px solid rgba(226, 232, 240, 0.6);
             box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+            margin-left: 0 !important;
+            width: 100% !important;
         }
         .navbar-nav .nav-link {
             color: #495057;
@@ -62,6 +64,20 @@
         .dropdown-menu .dropdown-item i {
             width: 20px;
             margin-right: 8px;
+        }
+        body.layout-top-nav .wrapper {
+            margin-left: 0 !important;
+        }
+        body.layout-top-nav .content-wrapper {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        body.layout-top-nav .main-header {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        body.layout-top-nav .main-sidebar {
+            display: none !important;
         }
 
         a {
@@ -139,10 +155,10 @@
         }
 
         .kasir-status {
-            margin-top: 24px;
+            margin-top: 32px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 12px;
+            gap: 16px;
         }
 
         .kasir-status span {
@@ -158,30 +174,30 @@
         }
 
         .kasir-grid {
-            margin-top: 28px;
+            margin-top: 36px;
             display: grid;
             grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.95fr);
-            gap: 24px;
+            gap: 32px;
         }
 
         .kasir-card {
             background: var(--bg-card);
             border-radius: 24px;
-            padding: 24px;
+            padding: 32px;
             box-shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
             border: 1px solid rgba(148, 163, 184, 0.2);
         }
 
         .kasir-card h2 {
-            margin: 0 0 16px;
+            margin: 0 0 20px;
             font-size: 1.25rem;
         }
 
         .kasir-filter {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 18px;
+            gap: 16px;
+            margin-bottom: 24px;
         }
 
         .kasir-filter input,
@@ -198,8 +214,8 @@
         .kasir-categories {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 18px;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
         .kasir-categories button {
@@ -222,7 +238,7 @@
         .kasir-products {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 18px;
+            gap: 20px;
         }
 
         .kasir-product {
@@ -372,8 +388,35 @@
                 grid-template-columns: 1fr;
             }
         }
+        body.layout-top-nav {
+            overflow-x: hidden;
+        }
+        body.layout-top-nav .wrapper {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        body.layout-top-nav .content-wrapper {
+            margin-left: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        body.layout-top-nav .main-header {
+            margin-left: 0 !important;
+            width: 100% !important;
+            left: 0 !important;
+            right: 0 !important;
+        }
+        body.layout-top-nav .main-sidebar,
+        body.layout-top-nav aside.main-sidebar {
+            display: none !important;
+            width: 0 !important;
+            margin-left: 0 !important;
+        }
+        body.layout-top-nav .content-wrapper > .content {
+            padding: 0 !important;
+        }
     </style>
 </head>
-<body class="hold-transition">
+<body class="hold-transition layout-top-nav">
 <div class="wrapper">
 
